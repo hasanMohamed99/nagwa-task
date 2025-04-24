@@ -10,7 +10,10 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Default icons asset for Cupertino widgets based on Apple styled icons
   cupertino_icons: ^1.0.8
+  # Flutter library to load and cache network images. Can also be used with placeholder and error widgets.
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
