@@ -17,7 +17,7 @@ Before you begin, ensure you have met the following requirements:
 ## Architecture Overview
 This diagram illustrates the unidirectional data flow in the app using Cubit for state management. It shows the interaction between the UI, Cubit, Repository, and Server:
 
-![flow.png](../../../../Users/hasanmohamed/Downloads/flow.png)
+![flow](https://github.com/user-attachments/assets/ace0ffbe-6c71-47d3-acc9-7649b2224dae)
 
 ## Pubspec yaml
 
