@@ -1,0 +1,43 @@
+name: nagwa_task
+description: "Nagwa Task."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/cairo/Cairo-100.ttf
+          weight: 100
+        - asset: assets/fonts/cairo/Cairo-200.ttf
+          weight: 200
+        - asset: assets/fonts/cairo/Cairo-300.ttf
+          weight: 300
+        - asset: assets/fonts/cairo/Cairo-400.ttf
+          weight: 400
+        - asset: assets/fonts/cairo/Cairo-500.ttf
+          weight: 500
+        - asset: assets/fonts/cairo/Cairo-600.ttf
+          weight: 600
+        - asset: assets/fonts/cairo/Cairo-700.ttf
+          weight: 700
+        - asset: assets/fonts/cairo/Cairo-800.ttf
+          weight: 800
+        - asset: assets/fonts/cairo/Cairo-900.ttf
+          weight: 900
