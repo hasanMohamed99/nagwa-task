@@ -2,10 +2,19 @@ import 'package:nagwa_task/core/core.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearchBar extends StatelessWidget {
+  /// A text that will be shown when the search bar is empty. If null, a 'Search' text will be shown.
   final String? hintText;
+
+  /// A style that will be applied to the hint text.
   final TextStyle? hintStyle;
+
+  /// A widget that will be shown before the text field.
   final Widget? leading;
+
+  /// A callback that will be called when the user submits the search.
   final void Function(String)? onSubmitted;
+
+  /// A callback that will be called when the text in the search bar changes.
   final void Function(String)? onChanged;
   const CustomSearchBar({
     super.key,
@@ -24,7 +33,7 @@ class CustomSearchBar extends StatelessWidget {
       elevation: const WidgetStatePropertyAll(1),
       shape: const WidgetStatePropertyAll(
         RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(AppConstants.kRadius25)),
+          borderRadius: BorderRadius.all(Radius.circular(AppConstants.kRadius10)),
           side: BorderSide(color: AppColors.secondGray),
         ),
       ),

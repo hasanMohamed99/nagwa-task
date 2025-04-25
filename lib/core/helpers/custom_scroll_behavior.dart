@@ -2,7 +2,6 @@ import 'package:nagwa_task/core/core.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-
 class CustomScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {PointerDeviceKind.touch};
