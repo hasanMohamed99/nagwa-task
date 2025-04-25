@@ -1,10 +1,24 @@
 //GENERATED BARREL FILE
+export './di/dependency_injection.dart';
+export './helpers/base_cubit.dart';
+export './helpers/bloc_observer.dart';
 export './helpers/constants.dart';
 export './helpers/custom_scroll_behavior.dart';
 export './helpers/de_bouncer.dart';
 export './helpers/extensions.dart';
+export './helpers/show_snack_bar.dart';
 export './helpers/spacing.dart';
+export './networking/api_service/api_constants.dart';
+export './networking/api_service/api_error_handler.dart';
+export './networking/api_service/api_error_model.dart';
+export './networking/api_service/api_result.dart';
+export './networking/api_service/api_service.dart';
+export './networking/api_service/dio_factory.dart';
+export './networking/api_service/json_parser_helper.dart';
+export './routing/app_router.dart';
+export './routing/routes.dart';
 export './theming/app_colors.dart';
 export './theming/app_fonts.dart';
 export './theming/app_text_styles.dart';
 export './widgets/custom_search_bar.dart';
+export './widgets/shimmer_widget.dart';
