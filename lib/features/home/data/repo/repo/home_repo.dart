@@ -5,9 +5,9 @@ class HomeRepo {
   final ApiService _apiService;
   HomeRepo(this._apiService);
 
-  Future<ApiResult<BooksModelResponse>> getBooksList({required int page}) async {
+  Future<ApiResult<BooksModelResponse>> getBooksList({required int page, String? query}) async {
     try {
-      final response = await _apiService.getBooksList(page);
+      final response = await _apiService.getBooksList(page: page, query: query);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ApiErrorHandler.handle(error));

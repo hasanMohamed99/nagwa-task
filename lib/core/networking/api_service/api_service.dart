@@ -9,5 +9,8 @@ abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   @GET(ApiConstants.booksList)
-  Future<BooksModelResponse> getBooksList(@Query('page') int page);
+  Future<BooksModelResponse> getBooksList({
+    @Query('page') required int page,
+    @Query('search', encoded: true) String? query,
+  });
 }

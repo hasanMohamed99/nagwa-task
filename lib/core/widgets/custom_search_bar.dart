@@ -12,10 +12,13 @@ class CustomSearchBar extends StatelessWidget {
   final Widget? leading;
 
   /// A callback that will be called when the user submits the search.
-  final void Function(String)? onSubmitted;
+  final void Function(String value)? onSubmitted;
 
   /// A callback that will be called when the text in the search bar changes.
-  final void Function(String)? onChanged;
+  final void Function(String value)? onChanged;
+
+  /// A controller that will be used to control the text field.
+  final TextEditingController? controller;
   const CustomSearchBar({
     super.key,
     this.hintText,
@@ -23,11 +26,13 @@ class CustomSearchBar extends StatelessWidget {
     this.leading,
     this.onSubmitted,
     this.onChanged,
+    this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return SearchBar(
+      controller: controller,
       hintText: hintText ?? 'Search',
       hintStyle: WidgetStatePropertyAll(hintStyle ?? AppTextStyles.font14SemiBoldGray),
       elevation: const WidgetStatePropertyAll(1),

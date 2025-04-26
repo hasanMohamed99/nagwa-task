@@ -8,20 +8,33 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final homeCubit = context.read<HomeCubit>();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         scrolledUnderElevation: 0,
         backgroundColor: AppColors.transparent,
         toolbarHeight: 0,
-        bottom: const PreferredSize(
-          preferredSize: Size.fromHeight(80),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(80),
           child: Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: AppConstants.kVerticalPadding10,
               horizontal: AppConstants.kHorizontalPadding10,
             ),
-            child: CustomSearchBar(),
+            child: CustomSearchBar(
+              controller: homeCubit.searchController,
+              onChanged: (value) {
+                homeCubit.deBouncer.run(() {
+                  if (value.trim().isNotEmpty) {
+                    homeCubit.clearSearchState();
+                    homeCubit.runSearchQuery(value);
+                  } else {
+                    homeCubit.refreshBooksList();
+                  }
+                });
+              },
+            ),
           ),
         ),
         elevation: 0,
@@ -30,12 +43,16 @@ class HomeScreen extends StatelessWidget {
         onNotification: (notification) {
           if (notification.metrics.pixels == notification.metrics.maxScrollExtent &&
               notification is ScrollUpdateNotification) {
-            context.read<HomeCubit>().getBooksList(isFromLoading: true);
+            if (!homeCubit.state.searchQuery.isNullOrEmpty()) {
+              homeCubit.runSearchQuery(homeCubit.state.searchQuery!, isFromLoading: true);
+            } else {
+              homeCubit.getBooksList(isFromLoading: true);
+            }
           }
           return true;
         },
         child: RefreshIndicator(
-          onRefresh: () async => context.read<HomeCubit>().refreshBooksList(),
+          onRefresh: () async => homeCubit.refreshBooksList(),
           child: BlocConsumer<HomeCubit, HomeState>(
             listener: (context, state) {
               if (state.status == HomeStatus.error) {
@@ -94,9 +111,7 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      onPressed: () {
-                                        context.read<HomeCubit>().refreshBooksList();
-                                      },
+                                      onPressed: homeCubit.refreshBooksList,
                                       label: Text('Retry', style: AppTextStyles.font14Medium),
                                       icon: const Icon(Icons.refresh),
                                     ),

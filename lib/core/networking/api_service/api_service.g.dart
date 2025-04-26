@@ -18,9 +18,13 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<BooksModelResponse> getBooksList(int page) async {
+  Future<BooksModelResponse> getBooksList({
+    required int page,
+    String? query,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page};
+    final queryParameters = <String, dynamic>{r'page': page, r'search': query};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<BooksModelResponse>(

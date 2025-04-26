@@ -16,6 +16,8 @@ class HomeState {
   final String? errorMessage;
   final int currentPage;
   final bool isLoadingMore;
+  final String? searchQuery;
+  final bool? isLastPage;
 
   const HomeState({
     required this.status,
@@ -23,6 +25,8 @@ class HomeState {
     this.errorMessage,
     this.currentPage = 1,
     this.isLoadingMore = false,
+    this.searchQuery,
+    this.isLastPage,
   });
 
   HomeState copyWith({
@@ -31,6 +35,8 @@ class HomeState {
     String? errorMessage,
     int? currentPage,
     bool? isLoadingMore,
+    String? searchQuery,
+    bool? isLastPage,
   }) {
     return HomeState(
       status: status ?? this.status,
@@ -38,12 +44,17 @@ class HomeState {
       errorMessage: errorMessage ?? this.errorMessage,
       currentPage: currentPage ?? this.currentPage,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,
+      searchQuery: searchQuery ?? this.searchQuery,
+      isLastPage: isLastPage ?? this.isLastPage,
     );
   }
 
   @override
   String toString() {
-    return 'HomeState{status: $status, booksModelResponse: $books, errorMessage: $errorMessage, currentPage: $currentPage, isLoadingMore: $isLoadingMore}';
+    return 'HomeState{status: $status, booksModelResponse: $books, '
+        'errorMessage: $errorMessage, currentPage: $currentPage, '
+        'isLoadingMore: $isLoadingMore, searchQuery: $searchQuery, '
+        'isLastPage: $isLastPage';
   }
 
   @override
@@ -55,7 +66,9 @@ class HomeState {
         listEquals(other.books, books) &&
         other.errorMessage == errorMessage &&
         other.currentPage == currentPage &&
-        other.isLoadingMore == isLoadingMore;
+        other.isLoadingMore == isLoadingMore &&
+        other.searchQuery == searchQuery &&
+        other.isLastPage == isLastPage;
   }
 
   @override
@@ -64,5 +77,7 @@ class HomeState {
       books.hashCode ^
       errorMessage.hashCode ^
       currentPage.hashCode ^
-      isLoadingMore.hashCode;
+      isLoadingMore.hashCode ^
+      searchQuery.hashCode ^
+      isLastPage.hashCode;
 }
