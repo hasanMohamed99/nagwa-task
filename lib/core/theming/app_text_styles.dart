@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:nagwa_task/core/core.dart';
 
 class AppTextStyles {

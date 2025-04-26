@@ -117,3 +117,8 @@ extension StringExtension on String? {
     return parts.join('.');
   }
 }
+
+extension BoolExtension on bool? {
+  bool isFalse() => this == null || this == false;
+  bool isTrue() => this != null || this == true;
+}

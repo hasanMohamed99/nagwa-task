@@ -91,21 +91,6 @@ class BookCardWidget extends StatelessWidget {
               style: AppTextStyles.font12Medium.copyWith(color: AppColors.gray),
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.only(
-          //     right: AppConstants.kHorizontalPadding10,
-          //     left: AppConstants.kHorizontalPadding10,
-          //     bottom: AppConstants.kVerticalPadding10,
-          //   ),
-          //   child: ExpandableText(
-          //     text: bookItemModel.getFirstSummary() ?? '',
-          //     textStyle: AppTextStyles.font12Medium.copyWith(color: AppColors.gray),
-          //     expandTextStyle: AppTextStyles.font12Bold.copyWith(
-          //       color: Theme.of(context).colorScheme.primary,
-          //     ),
-          //     collapsedLines: 4,
-          //   ),
-          // ),
         ],
       ),
     );
