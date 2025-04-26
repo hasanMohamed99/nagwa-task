@@ -34,6 +34,9 @@ dependencies:
   flutter_bloc: ^9.1.0
   # A package provides an easy way to add shimmer effect.
   skeletonizer: ^1.4.3
+  # A Flutter plugin for reading and writing simple key-value pairs locally.
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:

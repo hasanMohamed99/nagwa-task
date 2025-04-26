@@ -8,4 +8,6 @@ class AppConstants {
   static const double kHorizontalPadding10 = 10;
 
   static const double kVerticalPadding10 = 10;
+
+  static const String kBooksBoxName = 'books_box';
 }
