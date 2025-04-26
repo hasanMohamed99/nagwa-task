@@ -33,8 +33,6 @@ version: 1.0.0+1
 environment:
   sdk: ^3.7.2
 
-flutter_intl:
-  enabled: true
 dependencies:
   flutter:
     sdk: flutter

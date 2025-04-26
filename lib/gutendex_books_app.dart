@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'core/core.dart';
 
 class GutendexBooksApp extends StatelessWidget {
-  const GutendexBooksApp({super.key});
+  final AppRouter appRouter;
+  const GutendexBooksApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Gutendex Books',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Center(child: Text('Welcome to Gutendex Book App!'))),
+      scrollBehavior: CustomScrollBehavior(),
+      onGenerateRoute: appRouter.generateRoute,
     );
   }
 }
