@@ -5,6 +5,7 @@ A Flutter app to browse and search books from Project Gutenberg using the Gutend
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Architecture Overview](#architecture-overview)
+- [Project Setup](#project-setup)
 - [Pubspec yaml](#pubspec-yaml)
 
 ## Prerequisites
@@ -12,12 +13,47 @@ Before you begin, ensure you have met the following requirements:
 
 - **Flutter SDK**: v3.29.2 or later
 - **Dart SDK**: v3.7.2 or later
-- **Android Studio** or **Visual Studio Code** as IDE
+- **Android Studio** used (Ladybug | 2024.2.1 Patch 3) or **Visual Studio Code** as IDE
 
 ## Architecture Overview
-This diagram illustrates the unidirectional data flow in the app using Cubit for state management. It shows the interaction between the UI, Cubit, Repository, and Server:
+The project follows the Featured Clean Architecture pattern.
+
+### Project Structure
+- **core**:
+    - Shared base classes, constants, utilities, and general configurations.
+    - ApiService for handling all API network requests (using retrofit and dio packages).
+    - General error handling and network-related classes.
+- **features**: Each feature is self-contained and structured into:
+    - ***data:*** Models for parsing API responses. Repositories for communicating with the API (through the ApiService) and providing data to the Cubits.
+    - ***logic:*** Cubits and States for managing business logic and feature states.
+    - ***ui:*** Screens and Widgets for the user interface of the feature.
+
+**Notes:**
+I applied Clean Architecture principles but adapted and streamlined them for the task's scope. Certain deeper abstractions (like separate data sources, complex mappers) were intentionally simplified to keep the project lightweight, efficient, and highly readable.
+The Home feature is modular and separated, ensuring scalability for future development.
+
+- **Flow Diagram**:
 
 ![flow](https://github.com/user-attachments/assets/9545f313-bd39-48f7-9e47-a2fb81fe4ab7)
+
+## Project Setup
+
+Follow these steps to set up the project on your local machine:
+
+1. **Clone the repository**:
+   ```bash
+    https://github.com/hasanMohamed99/nagwa-task.git
+2. **Navigate to the Project Directory**:
+   ```bash
+    cd nagwa_task
+3. **Install Dependencies Ensure you have Flutter installed on your machine. Then run**:
+   ```bash
+    flutter pub get
+4. **Run the Application To launch the app, use the following command**:
+   ```bash
+    flutter run
+
+- **Tip**: I used Gitflow and FVM so It’s recommended to use Git Flow for better branch management. [Learn more about Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). You can also use Flutter FVM (Flutter Version Management) to easily manage Flutter versions. [Learn more about FVM](https://fvm.app/).
 
 ## Pubspec yaml
 
