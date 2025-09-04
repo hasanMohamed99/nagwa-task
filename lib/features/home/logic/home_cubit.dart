@@ -26,7 +26,7 @@ class HomeCubit extends BaseCubit<HomeState> {
     final response = await _homeRepo.getBooksList(page: state.currentPage);
 
     switch (response) {
-      case Success():
+      case ApiResultSuccess():
         emit(
           state.copyWith(
             status: HomeStatus.success,
@@ -39,7 +39,7 @@ class HomeCubit extends BaseCubit<HomeState> {
             isLastPage: response.data.next == null,
           ),
         );
-      case Failure():
+      case ApiResultFailure():
         emit(
           state.copyWith(
             status: HomeStatus.error,
@@ -83,7 +83,7 @@ class HomeCubit extends BaseCubit<HomeState> {
 
     final response = await _homeRepo.getBooksList(page: state.currentPage, query: query);
     switch (response) {
-      case Success():
+      case ApiResultSuccess():
         emit(
           state.copyWith(
             status: HomeStatus.success,
@@ -96,7 +96,7 @@ class HomeCubit extends BaseCubit<HomeState> {
             isLastPage: response.data.next == null,
           ),
         );
-      case Failure():
+      case ApiResultFailure():
         emit(
           state.copyWith(
             status: HomeStatus.error,

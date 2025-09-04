@@ -14,12 +14,12 @@ class HomeRepo {
       await _saveBooks(
         BooksModelResponse(books: response.books, resultsCount: response.resultsCount),
       );
-      return ApiResult.success(response);
+      return ApiResultSuccess(response);
     } catch (error) {
       final cachedData = await _getCachedBooks();
       return cachedData != null
-          ? ApiResult.success(cachedData)
-          : ApiResult.failure(ApiErrorHandler.handle(error));
+          ? ApiResultSuccess(cachedData)
+          : ApiResultFailure(ApiErrorHandler.handle(error));
     }
   }
 

@@ -21,8 +21,6 @@ dependencies:
   readmore: ^3.0.0
   # Easily configure any flutter application with global variables using a `.env` file.
   flutter_dotenv: ^5.2.1
-  # Annotations for the freezed code-generator. This package does nothing without freezed too.
-  freezed_annotation: ^3.0.0
   # Dependency injection.
   get_it: ^8.0.3
   # Networking.
@@ -47,8 +45,6 @@ dev_dependencies:
   build_runner: ^2.4.15
   # Automatically generate code to and from json.
   json_serializable: ^6.9.5
-  # Code generator (mainly used with cubit and retrofit).
-  freezed: ^3.0.6
 
 flutter:
   uses-material-design: true
